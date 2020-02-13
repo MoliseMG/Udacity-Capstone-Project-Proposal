@@ -10,7 +10,9 @@ January 16th, 2020
 ### Domain Background
 Twitter is a 'microblogging' system that allows people to send and receive short posts called tweets. It is a platform to connect with people and catch on on everything that is happening around us, either be the news, emergencies, blogs and many more. This provides and encourages communication between multiple parties and also informs the public about events that are around them and that may affect them.
 
-Twitter has approximately over 126 million daily users worldwide. 6,000 tweets are tweeted every second, which corresponds to over 350,000 tweets sent per minute, 500 million tweets per day and around 200 billion tweets per year. Due to the high usage of Twitter and the ubiquitousness of smartphones, Twitter has become an important communication channel in times of emergency. People prefer to announce an emergency they’re observing in real-time on Twitter because their posts can reach many people instantly on Twitter. Because of this, more agencies are interested in programatically monitoring Twitter for disasters(i.e. disaster relief organizations and news agencies).But, it’s not always clear whether a person’s words are actually announcing a disaster.
+Twitter has approximately over 126 million daily users worldwide. 6,000 tweets are tweeted every second, which corresponds to over 350,000 tweets sent per minute, 500 million tweets per day and around 200 billion tweets per year. Due to the high usage of Twitter and the ubiquitousness of smartphones, Twitter has become an important communication channel in times of emergency. People prefer to announce an emergency they’re observing in real-time on Twitter because their posts can reach many people instantly on Twitter. Because of this, more agencies are interested in programmatically monitoring Twitter for disasters(i.e. disaster relief organizations and news agencies).But, it’s not always clear whether a person’s words are actually announcing a disaster.
+
+Automatic identification of useful tweets is a challenging task because: (i) tweets are short – only 140 characters– and therefore, hard to understand without enough context;(ii) they often contain abbreviations, informal language,spelling variations and are ambiguous; and, (iii) judging a tweet’s utility is a subjective exercise. Despite advances in natural language processing (NLP), interpreting short informal texts automatically remains a hard problem (Nguyen et al. 2017).
 
 ### Problem Statement
 The goal of this project is to predict which tweets are about real disasters and which one’s aren’t. To solve the problem, I am going to use Natural Language Processing and Machine Learning techniques to develop a model that can classify real disasters from unreal ones. 
@@ -57,18 +59,27 @@ For this problem, the F1 Score of 1 is the best benchmark model. Also, comparing
 Prediction results are going to be evaluated using F1 score between the predicted and expected answers. F1 which is a function of Precision and Recall that is used to test the accuracy of the model. It considers both the precision _p_ and the recall _r_ of the test to compute the score: _p_ is the number of correct positive results divided by the number of all positive results returned by the classifier, and _r_ is the number of correct positive results divided by the number of all relevant samples (all samples that should have been identified as positive). If The model has F1 score that is close to 1 then it is accurate.
 
 ### Project Design
+
+**Data Exploration**
+* Load libraries
+* Load train and test datasets
+* Look at the shape of the data
+* Statistical Summary
+
 **Data Preprocessing**
-* Remove noise such as '@user' from all tweets
-* Stem the cleaned tweets (i.e Using PorterStemmer)
+* Drop keyword and location columns
+* Remove noise such as '@user' and hashtags from all tweets
 * Tokenize the tweets into words
-* Convert every word to a number using a vocabulary
+* Remove stopwords from tweets
+* Stem the tokens (i.e Using PorterStemmer)
+* Produce a word dictionary
+* Convert every word to an integer value using a vocabulary
 
 **Data Splitting**
-*Provided data is already split into test and training datasets
+* Provided data is already split into test and training datasets
 
 **Model Training and Evaluation**
-*Different classifications models will be tested and the best performing model (i.e. RNNs, XGBoost) will be picked.
-* The evaluation will be done based on the Evaluation Metrics section above.
+* Build an ensemble model that consists of three models being catboost, LSTM and XGBoost model.
 
 ### Reference
 [1] Accuracy, Precision, Recall or F1? [TowardsDataScience](https://towardsdatascience.com/accuracy-precision-recall-or-f1-331fb37c5cb9)  

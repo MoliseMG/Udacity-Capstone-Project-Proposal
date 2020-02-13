@@ -53,7 +53,7 @@ Because we are dealing with a classification problem, either RNN or XGBoost mode
 After training the model we are going to use the evaluation metrics described in later sections to analyse the performance of the model.
 
 ### Benchmark Model
-For this problem, the F1 Score of 1 is the best benchmark model. Also, comparing our model prediction results to the submission file offered by kaggle will also serve as a benchmark model. The model predictions will have to match all the results in the Kaggle Submission file.
+Due to the fact that the train and test datasets have both features and labels, this is a supervised learning problem. Tree based models have proven to be the best when it comes to classification. Using CatBoost and extreme gradient boost(XGBoost) for a benchmark will be a very good idea. I'll try to beat the benchmark by building an Ensemble model that consists of CatBoost, LightGBM and XGBoost. Also, ill tune hyperparameters to incease the overall model accuracy.
 
 ### Evaluation Metrics
 Prediction results are going to be evaluated using F1 score between the predicted and expected answers. F1 which is a function of Precision and Recall that is used to test the accuracy of the model. It considers both the precision _p_ and the recall _r_ of the test to compute the score: _p_ is the number of correct positive results divided by the number of all positive results returned by the classifier, and _r_ is the number of correct positive results divided by the number of all relevant samples (all samples that should have been identified as positive). If The model has F1 score that is close to 1 then it is accurate.
@@ -80,10 +80,12 @@ Prediction results are going to be evaluated using F1 score between the predicte
 
 **Model Training and Evaluation**
 * Build an ensemble model that consists of three models being catboost, LSTM and XGBoost model.
+* Select the best ensemble model based on accuracy after hyper-parameter tuning.
 
 ### Reference
 [1] Accuracy, Precision, Recall or F1? [TowardsDataScience](https://towardsdatascience.com/accuracy-precision-recall-or-f1-331fb37c5cb9)  
 [2] F1 score [Wikipedia](https://en.wikipedia.org/wiki/F1_score)  
 [3] Real or Not? NLP with Disaster Tweets [Kaggle](https://www.kaggle.com/c/nlp-getting-started/overview/description)  
 [4]Twitter keeps losing monthly users, so it’s going to stop sharing how many [TheVerge](https://www.theverge.com/2019/2/7/18213567/twitter-to-stop-sharing-mau-as-users-decline-q4-2018-earnings)  
-[5] The Number of tweets per day in 2019 [Dsayce](https://www.dsayce.com/social-media/tweets-day/)  
+[5] The Number of tweets per day in 2019 [Dsayce](https://www.dsayce.com/social-media/tweets-day/) 
+[6]Nguyen, Mannai, Joty, Sajjad et al. "Robust Classification of Crisis-Related Data on Social Networks Using Convolutional Neural Networks." Qatar Computing Research Institute. 2017

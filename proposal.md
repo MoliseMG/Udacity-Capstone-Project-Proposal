@@ -79,7 +79,7 @@ Prediction results are going to be evaluated using F1 score between the predicte
 * Provided data is already split into test and training datasets
 
 **Model Training and Evaluation**
-* Build an ensemble model that consists of three models being catboost, LSTM and XGBoost model.
+* Build an ensemble model that consists of three models being catboost, LightGBM and XGBoost model.
 * Select the best ensemble model based on accuracy after hyper-parameter tuning.
 
 ### Reference
@@ -87,5 +87,5 @@ Prediction results are going to be evaluated using F1 score between the predicte
 [2] F1 score [Wikipedia](https://en.wikipedia.org/wiki/F1_score)  
 [3] Real or Not? NLP with Disaster Tweets [Kaggle](https://www.kaggle.com/c/nlp-getting-started/overview/description)  
 [4]Twitter keeps losing monthly users, so it’s going to stop sharing how many [TheVerge](https://www.theverge.com/2019/2/7/18213567/twitter-to-stop-sharing-mau-as-users-decline-q4-2018-earnings)  
-[5] The Number of tweets per day in 2019 [Dsayce](https://www.dsayce.com/social-media/tweets-day/) 
+[5] The Number of tweets per day in 2019 [Dsayce](https://www.dsayce.com/social-media/tweets-day/)    
 [6]Nguyen, Mannai, Joty, Sajjad et al. "Robust Classification of Crisis-Related Data on Social Networks Using Convolutional Neural Networks." Qatar Computing Research Institute. 2017
